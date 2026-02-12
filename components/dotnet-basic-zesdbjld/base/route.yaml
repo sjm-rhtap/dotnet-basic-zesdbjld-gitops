@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: dotnet-basic-zesdbjld
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: dotnet-basic-zesdbjld 
+  name: dotnet-basic-zesdbjld
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: dotnet-basic-zesdbjld
+    weight: 100 
